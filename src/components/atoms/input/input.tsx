@@ -30,7 +30,7 @@ const Input: FC<InputProps> = ({
       />
       {
         /*conditionError*/ messageError && (
-          <span className="input__error">{`${labelMessage} no válido`}</span>
+          <span className="input__error">{messageError}</span>
         )
       }
     </div>

@@ -5,6 +5,7 @@ import { Gift } from '../../../utils/interfaces/interfaces'
 import './home.scss'
 import { UserService } from '../../../services/user.service'
 import GiftCard from '../../molecules/gift-card/gift-card'
+import WarningIcon from '../../../assets/warning-icon.svg'
 
 const Home = () => {
   const [gifts, setGifts] = useState<Gift[]>([])
@@ -22,7 +23,6 @@ const Home = () => {
     UserService.getMyGifts()
       .then((response) => {
         setGifts(response)
-        
       })
       .catch(() => {})
   })
@@ -31,7 +31,7 @@ const Home = () => {
       <Header principalText="Gift Galery"></Header>
       <SearchBar setSearchValue={setSearchValue} setStateModal={setStateModal} setEdit={setEdit} />
       <section className="home__board">
-        <section className="home__card">
+      {gifts.length > 0 && <section className="home__card">
           {gifts.map((option: Gift, item) => {
             const deleteGift = () => {
               //UserService.deleteGift(option)
@@ -45,7 +45,11 @@ const Home = () => {
               </section>
             )
           })}
-        </section>
+        </section>}
+        {gifts.length===0 && <section className="home__card--empty">
+          <img src={WarningIcon} alt="Warning"></img>
+          <h2>No posee Gifts</h2>
+          </section>}
       </section>
     </section>
   )

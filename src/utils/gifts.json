@@ -1,0 +1,37 @@
+{ "gifts": [
+    {
+      "id": 1,
+      "url": "https://media.tenor.com/VzvFB3Apq-8AAAAM/captain-america-avengers.gif",
+      "author_id": 18
+    },
+    {
+      "id": 1,
+      "url": "https://media.tenor.com/aQ7JU8GcbJoAAAAM/the-avengers-marvel.gif",
+      "author_id": 18
+      
+    },
+    {
+      "id": 1,
+      "url": "https://media.tenor.com/mme2qVjaN8oAAAAM/avengers-endgame-marvel.gif",
+      "author_id": 18
+      
+    },
+    {
+      "id": 1,
+      "url": "https://media.tenor.com/AC9M9sJJQa8AAAAM/marvel-future-revolution-marvel-future-fight.gif",
+      "author_id": 18
+      
+    },
+    {
+      "id": 1,
+      "url": "https://media.tenor.com/32g9ZstNXGMAAAAM/avengers-endgame-captain-america.gif",
+      "author_id": 18
+      
+    },
+    {
+      "id": 1,
+      "url": "https://media.tenor.com/VzvFB3Apq-8AAAAM/captain-america-avengers.gif",
+      "author_id": 18
+      
+    }
+  ]}

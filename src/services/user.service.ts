@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
 import { Player, Option, Gift } from '../utils/interfaces/interfaces'
+import gifts from '../utils/gifts.json'
 
 const API_URL = process.env.REACT_APP_API_URL as string
 
@@ -7,24 +8,12 @@ export interface FirebaseWrapper<T> {
   data: T
 }
 
-export interface User {
-  username: string
-  email: string
-  token: string
-}
-
 export class UserService {
 
 
-  
-  static async getUsers() {
-    const response = await axios.get<User[]>(API_URL)
-    return response.data
-  }
-
   static async getMyGifts() {
     /* const response: AxiosResponse<Player[]> = await axios.get(
-      'https://iyelrnlkoq7ra5mnxg5cobbkta0uubul.lambda-url.us-east-1.on.aws/?author_id=1',
+      'https://iyelrnlkoq7ra5mnxg5cobbkta0uubul.lambda-url.us-east-1.on.aws/?author_id=18',
       {
         headers: {
           author_id: '18'
@@ -66,11 +55,9 @@ export class UserService {
     ]
     return myArray
   }
-
-
   static deleteGift = async(gift: Gift) =>{
-    console.log('Gift eliminado' + gift.id)
-    const response: AxiosResponse<Player[]> = await axios.delete(
+    console.log('Gift eliminado')
+    /* const response: AxiosResponse<Player[]> = await axios.delete(
       'https://iyelrnlkoq7ra5mnxg5cobbkta0uubul.lambda-url.us-east-1.on.aws/',
       {
         headers: {
@@ -80,9 +67,8 @@ export class UserService {
         }
       }
     )
-    return response.data 
+    return response.data  */
   }
-
   static async createGift(gift: Gift) {
     const response = await axios.post('https://iyelrnlkoq7ra5mnxg5cobbkta0uubul.lambda-url.us-east-1.on.aws/', {
       headers: {

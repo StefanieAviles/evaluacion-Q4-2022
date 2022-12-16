@@ -1,10 +1,7 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import './gift-card.scss'
 import Image from '../../atoms/image/image'
 import { Gift } from '../../../utils/interfaces/interfaces'
-import Button from '../../atoms/button/button'
-import { UserService } from '../../../services/user.service'
-
 interface GiftCardProps {
   gift: Gift
   deleteGift: () => void
@@ -13,10 +10,12 @@ interface GiftCardProps {
 }
 
 const GiftCard: FC<GiftCardProps> = ({ gift, deleteGift, stateModal,setStateModal }) => {
+  
+  const [isDeleted, setIsDeleted] = useState(false)
   return (
     <section className="gift-card">
       <section className="gift-card__header">
-        <Image gift={gift} isDeleted={stateModal} deleteGift={deleteGift}></Image>
+        <Image gift={gift} isDeleted={isDeleted} setIsDeleted={setIsDeleted} deleteGift={deleteGift}></Image>
       </section>
     </section>
   )
