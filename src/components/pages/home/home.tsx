@@ -20,12 +20,15 @@ const Home = () => {
   })
 
   useEffect(() => {
-    UserService.getMyGifts()
+    const getServicesGifts = async ()=> {
+      UserService.getMyGifts()
       .then((response) => {
         setGifts(response)
       })
       .catch(() => {})
-  })
+    }
+    getServicesGifts()
+  }, [])
   return (
     <section className="home">
       <Header principalText="Gift Galery"></Header>

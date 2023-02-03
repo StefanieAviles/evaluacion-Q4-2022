@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import Button from './button'
 
 describe('Button component tests', () => {
@@ -17,5 +17,12 @@ describe('Button component tests', () => {
     render(<Button disabled>Some Text</Button>)
     const buttonFound = screen.getByRole('button')
     expect(buttonFound).toHaveAttribute('disabled')
+  })
+  it('should trigger the click event', () => {
+    const onClickObj = jest.fn();
+    render(<Button onClick={() => onClickObj()} >Some Text</Button>)
+    const buttonFound = screen.getByRole('button');
+    fireEvent.click(buttonFound);
+    expect(onClickObj).toBeCalled()
   })
 })

@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import SearchBar from './search-bar'
-import { act } from 'react-dom/test-utils'
 
 describe('SearchBar component', () => {
   const setSearchValue = jest.fn()
@@ -20,9 +19,8 @@ describe('SearchBar component', () => {
       <SearchBar setSearchValue={setSearchValue} setStateModal={setStateModal} setEdit={setEdit} />
     )
     const buttonFound = screen.getByRole('button')
-    act(() => {
-      userEvent.click(buttonFound)
-    })
+    fireEvent.click(buttonFound)
+  
     expect(setEdit).toBeCalled()
   })
 })

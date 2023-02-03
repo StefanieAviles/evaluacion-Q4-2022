@@ -11,7 +11,7 @@ describe('GiftCard component', () => {
   }
   it('should render with a gift', () => {
     render(<GiftCard gift={gift} deleteGift={deleteGift} stateModal setStateModal={setStateModal}/>)
-    const GiftCardFound = screen.getByText('Gift Galery')
+    const GiftCardFound = screen.getByAltText('Close')
     expect(GiftCardFound).toBeDefined()
     //expect(screen.getByText(player.attack)).toBeVisible()
   })
